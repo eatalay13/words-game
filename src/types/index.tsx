@@ -3,6 +3,7 @@ export interface GameManager {
   endGame: () => void;
   isGameRunning: boolean;
   score: number;
+  health: number;
   resetScore: () => void;
   incrementScore: () => void;
   decrementScore: () => void;
