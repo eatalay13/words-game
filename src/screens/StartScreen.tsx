@@ -1,3 +1,4 @@
+import { CircleX, Settings, Sword, Swords } from "lucide-react";
 import React from "react";
 import MenuButton from "../components/MenuButton";
 
@@ -14,17 +15,25 @@ const StartScreen: React.FC<StartScreenProps> = ({ startGame }) => {
             Kelime Tahmin Oyunu
           </h2>
           <div className="flex flex-col justify-center">
-            <MenuButton variant="continue">Devam Et</MenuButton>
+            <MenuButton variant="continue">
+              <Sword className="mr-2" size={20} />
+              Devam Et
+            </MenuButton>
             <MenuButton onClick={startGame} variant="play">
+              <Swords className="mr-2" size={20} />
               Yeni Oyun
             </MenuButton>
-            <MenuButton variant="settings">Ayarlar</MenuButton>
+            <MenuButton variant="settings">
+              <Settings className="mr-2" size={20} />
+              Ayarlar
+            </MenuButton>
             <MenuButton
               variant="exit"
               onClick={() => {
                 window.location.reload();
               }}
             >
+              <CircleX className="mr-2" size={20} />
               Çıkış
             </MenuButton>
           </div>

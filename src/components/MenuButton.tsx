@@ -12,7 +12,7 @@ function MenuButton(props: MenuButtonProps) {
     <button
       onClick={props.onClick}
       className={clsx(
-        "px-4 py-2 rounded mt-4 font-bold",
+        "px-4 py-2 rounded mt-4 font-bold flex flex-row items-center justify-center",
         props.variant === "settings" &&
           "bg-blue-500 text-white hover:bg-blue-700",
         props.variant === "play" &&
