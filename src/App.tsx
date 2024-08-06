@@ -1,4 +1,5 @@
 import { useState } from "react";
+import words from "./data/words";
 import EndScreen from "./screens/EndScreen";
 import Game from "./screens/Game";
 import StartScreen from "./screens/StartScreen";
@@ -12,7 +13,7 @@ function App() {
   const [score, setScore] = useState<number>(0);
 
   const startGame = () => {
-    setWord("KELİME"); // Rastgele kelime seçimi buraya eklenecek
+    setWord(words[Math.floor(Math.random() * words.length)].word);
     setGameState("playing");
   };
 
