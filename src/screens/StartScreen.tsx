@@ -8,30 +8,29 @@ interface StartScreenProps {
 
 const StartScreen: React.FC<StartScreenProps> = ({ startGame }) => {
   return (
-    <div>
-      <div className="flex items-center justify-center">
-        <div>
-          <h2 className="w-full text-xl md:text-3xl font-bold mb-4 uppercase text-white stroke-gameWine">
-            MindWords
-          </h2>
-          <div className="flex flex-row gap-x-2 justify-center">
-            <MenuButton onClick={startGame} variant="play">
-              <Swords className="mr-2" size={20} />
-              Başla
-            </MenuButton>
-            <MenuButton variant="save">
-              <Save size={20} />
-            </MenuButton>
-          </div>
-          <div className="flex flex-row gap-x-2 justify-center mt-6">
-            <p className="text-xs lg:text-sm text-white">
-              Oyunu oynarken klavyenizdeki harfleri kullanarak kelime tahmin
-              edin.
-            </p>
-          </div>
+    <>
+      <div className="w-32 h-32 bg-pink-300 rounded-full flex items-center justify-center mb-4">
+        <div className="w-24 h-24 bg-pink-200 rounded-full flex items-center justify-center">
+          EA
         </div>
       </div>
-    </div>
+      <h1 className="text-4xl font-bold text-white mb-8 tracking-wider">
+        MindWords
+      </h1>
+      <div className="flex flex-row gap-x-4">
+        <MenuButton onClick={startGame} variant="play">
+          <Swords className="mr-2" size={20} />
+          Başla
+        </MenuButton>
+        <MenuButton variant="save">
+          <Save size={20} />
+        </MenuButton>
+      </div>
+      <div className="mt-4 flex space-x-4 text-xs">
+        <span className="text-gray-700">Term of Use</span>
+        <span className="text-gray-700">Privacy Policy</span>
+      </div>
+    </>
   );
 };
 

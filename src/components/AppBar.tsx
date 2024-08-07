@@ -6,8 +6,11 @@ interface AppBarProps {
 
 function AppBar({ children }: AppBarProps) {
   return (
-    <header className="text-white p-4 sticky top-0 z-10 flex backdrop-blur-sm items-center">
-      {children}
+    <header className="w-full flex justify-between px-4 mt-4">
+      <div className="w-9 h-9 bg-gamePink rounded-full flex items-center justify-center text-white font-bold text-xl border-2 border-white">
+        ?
+      </div>
+      <div className="flex space-x-2">{children}</div>
     </header>
   );
 }

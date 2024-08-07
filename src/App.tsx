@@ -26,21 +26,17 @@ function App() {
   };
 
   return (
-    <div className="bg-gameYellow text-white flex flex-col font-sans min-h-screen antialiased leading-normal tracking-normal overflow-x-hidden">
+    <div className="bg-gameYellow h-screen w-full flex flex-col items-center relative font-sans">
       <AppBar>
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-4">
-          <Badge number={30} />
-          <Badge number={456} />
-        </div>
+        <Badge number={30} />
+        <Badge number={456} />
       </AppBar>
-      <main className="flex-grow">
-        <div className="flex items-center justify-center h-full">
-          {gameState === "start" && <StartScreen startGame={startGame} />}
-          {gameState === "playing" && <Game word={word} endGame={endGame} />}
-          {gameState === "end" && (
-            <EndScreen score={score} startGame={startGame} />
-          )}
-        </div>
+      <main className="flex flex-col items-center justify-center flex-grow">
+        {gameState === "start" && <StartScreen startGame={startGame} />}
+        {gameState === "playing" && <Game word={word} endGame={endGame} />}
+        {gameState === "end" && (
+          <EndScreen score={score} startGame={startGame} />
+        )}
       </main>
       <BottomBar />
     </div>
