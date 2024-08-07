@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { ReactNode } from "react";
 
 interface MenuButtonProps {
-  variant: "play" | "continue" | "settings" | "exit";
+  variant: "play" | "save";
   children: ReactNode;
   onClick?: () => void;
 }
@@ -12,14 +12,10 @@ function MenuButton(props: MenuButtonProps) {
     <button
       onClick={props.onClick}
       className={clsx(
-        "px-4 py-2 rounded mt-4 font-bold flex flex-row items-center justify-center text-xs md:text-lg",
-        props.variant === "settings" &&
-          "bg-blue-500 text-white hover:bg-blue-700",
+        "px-4 uppercase py-2 rounded-full border-2 border-white mt-4 font-bold flex flex-row items-center justify-center text-xs md:text-lg",
+        props.variant === "save" && "bg-gameCyan text-white hover:bg-blue-700",
         props.variant === "play" &&
-          "bg-green-500 text-white hover:bg-green-700",
-        props.variant === "exit" && "bg-red-500 text-white hover:bg-red-700",
-        props.variant === "continue" &&
-          "bg-yellow-500 text-white hover:bg-yellow-600"
+          "bg-gameGreen text-white hover:bg-green-700 px-14"
       )}
     >
       {props.children}
