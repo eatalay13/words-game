@@ -26,10 +26,10 @@ function StartScreen({ startGame }: StartScreenProps) {
       </h1>
       <div className="flex flex-row gap-x-4">
         <MenuButton onClick={startGame} variant="play">
-          Oyna
+          oyna
         </MenuButton>
         <MenuButton variant="save" onClick={handleClick}>
-          <Save size={20} />
+          <Save size={24} strokeWidth={2.5} />
         </MenuButton>
       </div>
       <div className="mt-4 flex space-x-4 text-xs">
