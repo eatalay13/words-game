@@ -3,7 +3,7 @@ import { Home, LucideProps, Medal, Settings } from "lucide-react";
 import { useState } from "react";
 
 function BottomBar() {
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(1);
 
   return (
     <footer className="w-full bg-gameWhip rounded-t-3xl py-4 flex justify-evenly items-center">
