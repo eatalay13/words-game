@@ -12,7 +12,6 @@ function StartScreen({ startGame }: StartScreenProps) {
 
   const handleClick = () => {
     setConfettiVisible(true);
-    setTimeout(() => setConfettiVisible(false), 3000); // 3 saniye sonra confetti'yi durdur
   };
 
   return (
@@ -27,7 +26,7 @@ function StartScreen({ startGame }: StartScreenProps) {
       </h1>
       <div className="flex flex-row gap-x-4">
         <MenuButton onClick={startGame} variant="play">
-          Play
+          Oyna
         </MenuButton>
         <MenuButton variant="save" onClick={handleClick}>
           <Save size={20} />
@@ -37,7 +36,16 @@ function StartScreen({ startGame }: StartScreenProps) {
         <span className="text-white">Kullanım Koşulları</span>
         <span className="text-white">Gizlilik Politikası</span>
       </div>
-      {isConfettiVisible && <Confetti />}
+      <Confetti
+        run={isConfettiVisible}
+        recycle={false}
+        numberOfPieces={900}
+        tweenDuration={3000}
+        onConfettiComplete={(confetti) => {
+          confetti?.reset();
+          setConfettiVisible(false);
+        }}
+      />
     </>
   );
 }
