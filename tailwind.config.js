@@ -13,6 +13,11 @@ export default {
         gameOrange: "#F3A455",
         gameWhip: "#FFEDC7",
       },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
+        luckiestGuy: ["Luckiest Guy", "cursive"],
+      },
     },
   },
   plugins: [],

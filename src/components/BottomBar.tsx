@@ -45,10 +45,10 @@ function ButtomBarButton(props: ButtomBarButtonProps) {
     <div className="flex flex-col items-center text-center">
       <div
         className={clsx(
+          "rounded-2xl flex items-center justify-center hover:cursor-pointer transmition-all duration-300 mb-2 border-b-4",
           props.active
-            ? "bg-gamePink w-20 h-20 -mt-20"
-            : "w-14 h-14 bg-gameOrange",
-          "rounded-2xl flex items-center justify-center hover:cursor-pointer transmition-all duration-300 mb-2"
+            ? "bg-gamePink w-20 h-20 -mt-20 border-b-gameRed/50"
+            : "w-14 h-14 bg-gameOrange border-b-orange-800/40"
         )}
         onClick={props.onClick}
       >

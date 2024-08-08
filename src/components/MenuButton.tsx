@@ -12,10 +12,9 @@ function MenuButton(props: MenuButtonProps) {
     <button
       onClick={props.onClick}
       className={clsx(
-        "px-4 uppercase py-2 rounded-full border-2 border-white mt-4 font-bold flex flex-row items-center justify-center text-lg md:text-lg",
-        props.variant === "save" && "bg-gameCyan text-white hover:bg-blue-700",
-        props.variant === "play" &&
-          "bg-gameGreen text-white hover:bg-green-700 px-14"
+        "px-4 py-2 rounded-xl border-b-4 mt-4 flex flex-row items-center justify-center text-xl md:text-3xl font-luckiestGuy ring-2 ring-white border-b-gray-600/40",
+        props.variant === "save" && "bg-gameCyan text-white",
+        props.variant === "play" && "bg-gameGreen text-white px-16"
       )}
     >
       {props.children}
