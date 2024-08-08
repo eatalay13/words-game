@@ -1,12 +1,20 @@
 import { Save, Swords } from "lucide-react";
-import React from "react";
+import { useState } from "react";
+import Confetti from "react-confetti";
 import MenuButton from "../components/MenuButton";
 
 interface StartScreenProps {
   startGame: () => void;
 }
 
-const StartScreen: React.FC<StartScreenProps> = ({ startGame }) => {
+function StartScreen({ startGame }: StartScreenProps) {
+  const [isConfettiVisible, setConfettiVisible] = useState(false);
+
+  const handleClick = () => {
+    setConfettiVisible(true);
+    setTimeout(() => setConfettiVisible(false), 3000); // 3 saniye sonra confetti'yi durdur
+  };
+
   return (
     <>
       <div className="w-32 h-32 bg-pink-300 rounded-full flex items-center justify-center mb-4">
@@ -22,7 +30,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ startGame }) => {
           <Swords className="mr-2" size={20} />
           Başla
         </MenuButton>
-        <MenuButton variant="save">
+        <MenuButton variant="save" onClick={handleClick}>
           <Save size={20} />
         </MenuButton>
       </div>
@@ -30,8 +38,9 @@ const StartScreen: React.FC<StartScreenProps> = ({ startGame }) => {
         <span className="text-gray-700">Term of Use</span>
         <span className="text-gray-700">Privacy Policy</span>
       </div>
+      {isConfettiVisible && <Confetti />}
     </>
   );
-};
+}
 
 export default StartScreen;
