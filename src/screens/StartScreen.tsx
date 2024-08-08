@@ -17,8 +17,8 @@ function StartScreen({ startGame }: StartScreenProps) {
 
   return (
     <>
-      <div className="w-32 h-32 bg-pink-300 rounded-full flex items-center justify-center mb-4">
-        <div className="w-24 h-24 bg-pink-200 rounded-full flex items-center justify-center">
+      <div className="w-32 h-32 bg-gamePink rounded-full flex items-center justify-center mb-4">
+        <div className="w-24 h-24 bg-gameOrange rounded-full flex items-center justify-center text-white font-bold text-2xl">
           EA
         </div>
       </div>
@@ -35,8 +35,8 @@ function StartScreen({ startGame }: StartScreenProps) {
         </MenuButton>
       </div>
       <div className="mt-4 flex space-x-4 text-xs">
-        <span className="text-gray-700">Term of Use</span>
-        <span className="text-gray-700">Privacy Policy</span>
+        <span className="text-white">Kullanım Koşulları</span>
+        <span className="text-white">Gizlilik Politikası</span>
       </div>
       {isConfettiVisible && <Confetti />}
     </>
