@@ -1,8 +1,18 @@
+import { motion } from "framer-motion";
 import { AudioLinesIcon, Music, Settings, Vibrate } from "lucide-react";
 
 function SettingsScreen() {
   return (
-    <div className="flex flex-col items-center justify-between">
+    <motion.div
+      className="flex flex-col items-center justify-between"
+      initial={{ x: 30, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: 30, opacity: 0 }}
+      transition={{
+        ease: "easeInOut",
+        duration: 0.3,
+      }}
+    >
       <div className="bg-gameWhip rounded-3xl p-6 w-80 font-jungleAdventurer border-white border-4">
         <div className="flex items-center">
           <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-white">
@@ -57,7 +67,7 @@ function SettingsScreen() {
           <button>Gizlilik Politikası</button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
