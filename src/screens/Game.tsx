@@ -2,6 +2,7 @@ import { useState } from "react";
 import AppBar from "../components/AppBar";
 import Badge from "../components/Badge";
 import GameBottomBar from "../components/GameBottomBar";
+import GameInfoBar from "../components/GameInfoBar";
 import View from "../components/View";
 import ViewBody from "../components/ViewBody";
 import WordLettersBar from "../components/WordLettersBar";
@@ -51,24 +52,26 @@ function Game({ word, endGame }: GameProps) {
         <Badge number={guesses.length} />
       </AppBar>
       <ViewBody>
-        <div>
-          <h2 className="text-3xl font-bold mb-4">Kelime Tahmin Et</h2>
-          <div className="mb-6">
+        <GameInfoBar
+          remainingGuesses={remainingGuesses}
+          score={guesses.length}
+        />
+        <div className="min-w-full flex flex-col justify-center items-center bg-white/10 rounded-3xl p-6">
+          <h2 className="text-3xl mb-6 font-jungleAdventurer text-gameWhip">
+            Kelime
+          </h2>
+          <div className="flex flex-wrap">
             {word.split("").map((letter, index) => (
-              <span key={index} className="text-2xl mx-1">
+              <span
+                key={index}
+                className="text-6xl mx-1 font-jungleAdventurer text-gameWhip"
+              >
                 {guesses.includes(letter) ? letter.toUpperCase() : "_"}
               </span>
             ))}
           </div>
-          <div className="mb-4">
-            <p>Yanlış Tahminler: {wrongGuesses.join(", ")}</p>
-            <p>Kalan Haklar: {remainingGuesses}</p>
-          </div>
         </div>
-        <div className="mt-8">
-          <WordLettersBar word={word} onGuess={handleGuess} />
-        </div>
-        <div className="mt-8"></div>
+        <WordLettersBar word={word} onGuess={handleGuess} />
         <GameBottomBar selectedIndex={1} />
       </ViewBody>
     </View>
