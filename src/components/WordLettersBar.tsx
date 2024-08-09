@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { motion } from "framer-motion";
 
 interface WordLettersBarProps {
   word: string;
@@ -9,7 +10,11 @@ function WordLettersBar({ word, onGuess }: WordLettersBarProps) {
   return (
     <div className="flex flex-wrap justify-center gap-4 w-full bg-white/10 rounded-3xl p-4">
       {word.split("").map((letter, index) => (
-        <button
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          initial={{ x: 20, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.1 * index }}
           key={index}
           onClick={() => {
             onGuess(letter);
@@ -19,7 +24,7 @@ function WordLettersBar({ word, onGuess }: WordLettersBarProps) {
           )}
         >
           {letter.toUpperCase()}
-        </button>
+        </motion.button>
       ))}
     </div>
   );
