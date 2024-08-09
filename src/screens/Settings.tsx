@@ -3,7 +3,7 @@ import { AudioLinesIcon, Music, Settings, Vibrate } from "lucide-react";
 function SettingsScreen() {
   return (
     <div className="flex flex-col items-center justify-between">
-      <div className="bg-gameWhip rounded-3xl p-6 w-80 font-jungleAdventurer">
+      <div className="bg-gameWhip rounded-3xl p-6 w-80 font-jungleAdventurer border-white border-4">
         <div className="flex items-center">
           <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-white">
             <img
@@ -23,7 +23,7 @@ function SettingsScreen() {
           </button>
         </div>
         <div className="mt-6">
-          <div className="flex justify-between bg-white/50 p-3 rounded-lg border-b-4 border-b-gray-500/10">
+          <div className="flex justify-between bg-white/50 p-3 rounded-2xl border-b-4 border-b-gray-500/10">
             <button className="w-12 h-12 bg-gamePink text-white rounded-2xl border-b-4 border-b-gameWine/30 flex items-center justify-center">
               <span role="img" aria-label="music">
                 <Music size={24} />
@@ -42,13 +42,13 @@ function SettingsScreen() {
           </div>
         </div>
         <div className="mt-6 space-y-4">
-          <button className="w-full bg-white/50 text-xl text-gameWine py-3 rounded-lg border-b-4 border-b-gray-500/10">
+          <button className="w-full bg-white/50 text-xl text-gameWine py-3 rounded-2xl border-b-4 border-b-gray-500/10">
             <span>Türkçe</span>
           </button>
-          <button className="w-full bg-white/50 text-xl text-gameWine py-3 rounded-lg border-b-4 border-b-gray-500/10">
+          <button className="w-full bg-white/50 text-xl text-gameWine py-3 rounded-2xl border-b-4 border-b-gray-500/10">
             iletisim
           </button>
-          <button className="w-full bg-white/50 text-xl text-gameWine py-3 rounded-lg border-b-4 border-b-gray-500/10">
+          <button className="w-full bg-white/50 text-xl text-gameWine py-3 rounded-2xl border-b-4 border-b-gray-500/10">
             Oyunu Puanla
           </button>
         </div>
