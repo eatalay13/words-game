@@ -10,9 +10,9 @@ function StartScreen({ startGame }: StartScreenProps) {
   return (
     <motion.div
       className="flex flex-col items-center justify-between"
-      initial={{ x: 20, opacity: 0 }}
+      initial={{ x: 30, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      exit={{ x: 20, opacity: 0 }}
+      exit={{ x: 30, opacity: 0 }}
       transition={{
         ease: "easeInOut",
         duration: 0.3,
