@@ -61,7 +61,7 @@ function ButtomBarButton(props: ButtomBarButtonProps) {
       </div>
       <span
         className={clsx(
-          "text-gameWine transmition-all duration-300 font-luckiestGuy",
+          "text-gameWine transmition-all duration-300 font-jungleAdventurer",
           props.active ? "opacity-100" : "opacity-0"
         )}
       >

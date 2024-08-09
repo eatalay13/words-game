@@ -1,1 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+@font-face {
+  font-family: "Jungle Adventurer";
+  src: url("/assets/fonts/Jungle-Adventurer/Jungle-Adventurer.ttf.woff")
+      format("woff"),
+    url("/assets/fonts/Jungle-Adventurer/Jungle-Adventurer.ttf.svg#Jungle-Adventurer")
+      format("svg"),
+    url("/assets/fonts/Jungle-Adventurer/Jungle-Adventurer.ttf.eot"),
+    url("/assets/fonts/Jungle-Adventurer/Jungle-Adventurer.ttf.eot?#iefix")
+      format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}

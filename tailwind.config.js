@@ -16,7 +16,7 @@ export default {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
-        luckiestGuy: ["Luckiest Guy", "cursive"],
+        jungleAdventurer: ["Jungle Adventurer", "cursive"],
       },
     },
   },
