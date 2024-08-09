@@ -2,10 +2,11 @@ import { useState } from "react";
 import AppBar from "./components/AppBar";
 import Badge from "./components/Badge";
 import BottomBar from "./components/BottomBar";
+import View from "./components/View";
 import words from "./data/words";
 import EndScreen from "./screens/EndScreen";
 import Game from "./screens/Game";
-import StartScreen from "./screens/StartScreen";
+import SettingsScreen from "./screens/Settings";
 import "./styles/App.css";
 
 type GameState = "start" | "playing" | "end";
@@ -26,20 +27,20 @@ function App() {
   };
 
   return (
-    <div className="bg-gameYellow h-screen w-full flex flex-col items-center relative font-sans">
+    <View>
       <AppBar>
         <Badge number={30} />
         <Badge number={456} />
       </AppBar>
       <main className="flex flex-col items-center justify-center flex-grow">
-        {gameState === "start" && <StartScreen startGame={startGame} />}
+        {gameState === "start" && <SettingsScreen />}
         {gameState === "playing" && <Game word={word} endGame={endGame} />}
         {gameState === "end" && (
           <EndScreen score={score} startGame={startGame} />
         )}
       </main>
       <BottomBar />
-    </div>
+    </View>
   );
 }
 
