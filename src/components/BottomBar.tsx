@@ -2,26 +2,36 @@ import clsx from "clsx";
 import { Home, LucideProps, Medal, Settings } from "lucide-react";
 import { useState } from "react";
 
-function BottomBar() {
-  const [selected, setSelected] = useState(1);
+interface BottomBarProps {
+  selectedIndex: number;
+  onChange?: (index: number) => void;
+}
+
+function BottomBar({ selectedIndex, onChange }: BottomBarProps) {
+  const [selected, setSelected] = useState(selectedIndex);
+
+  function handleChanged(index: number) {
+    setSelected(index);
+    if (onChange) onChange(index);
+  }
 
   return (
     <footer className="w-full bg-gameWhip rounded-t-3xl py-4 flex justify-evenly items-center">
       <ButtomBarButton
         active={selected === 0}
-        onClick={() => setSelected(0)}
+        onClick={() => handleChanged(0)}
         icon={Medal}
         label="Liderlik"
       ></ButtomBarButton>
       <ButtomBarButton
         active={selected === 1}
-        onClick={() => setSelected(1)}
+        onClick={() => handleChanged(1)}
         icon={Home}
         label="Anasayfa"
       ></ButtomBarButton>
       <ButtomBarButton
         active={selected === 2}
-        onClick={() => setSelected(2)}
+        onClick={() => handleChanged(2)}
         icon={Settings}
         label="Ayarlar"
       />

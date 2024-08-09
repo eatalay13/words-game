@@ -1,12 +1,8 @@
 import { useState } from "react";
-import AppBar from "./components/AppBar";
-import Badge from "./components/Badge";
-import BottomBar from "./components/BottomBar";
-import View from "./components/View";
 import words from "./data/words";
 import EndScreen from "./screens/EndScreen";
 import Game from "./screens/Game";
-import SettingsScreen from "./screens/Settings";
+import Menu from "./screens/Menu";
 import "./styles/App.css";
 
 type GameState = "start" | "playing" | "end";
@@ -27,20 +23,11 @@ function App() {
   };
 
   return (
-    <View>
-      <AppBar>
-        <Badge number={30} />
-        <Badge number={456} />
-      </AppBar>
-      <main className="flex flex-col items-center justify-center flex-grow">
-        {gameState === "start" && <SettingsScreen />}
-        {gameState === "playing" && <Game word={word} endGame={endGame} />}
-        {gameState === "end" && (
-          <EndScreen score={score} startGame={startGame} />
-        )}
-      </main>
-      <BottomBar />
-    </View>
+    <>
+      {gameState === "start" && <Menu />}
+      {gameState === "playing" && <Game word={word} endGame={endGame} />}
+      {gameState === "end" && <EndScreen score={score} startGame={startGame} />}
+    </>
   );
 }
 
