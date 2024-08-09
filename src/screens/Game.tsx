@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import AppBar from "../components/AppBar";
 import Badge from "../components/Badge";
 import GameBottomBar from "../components/GameBottomBar";
 import View from "../components/View";
 import ViewBody from "../components/ViewBody";
+import WordLettersBar from "../components/WordLettersBar";
 
 interface GameProps {
   word: string;
@@ -14,7 +15,6 @@ function Game({ word, endGame }: GameProps) {
   const [guesses, setGuesses] = useState<string[]>([]);
   const [wrongGuesses, setWrongGuesses] = useState<string[]>([]);
   const [remainingGuesses, setRemainingGuesses] = useState<number>(6);
-  const [currentGuess, setCurrentGuess] = useState<string>("");
 
   const handleVibrate = () => {
     if ("vibrate" in navigator) {
@@ -24,8 +24,8 @@ function Game({ word, endGame }: GameProps) {
     }
   };
 
-  const handleGuess = () => {
-    const guess = currentGuess.toUpperCase();
+  const handleGuess = (value: string) => {
+    const guess = value;
     if (word.includes(guess)) {
       setGuesses([...guesses, guess]);
     } else {
@@ -33,11 +33,6 @@ function Game({ word, endGame }: GameProps) {
       setRemainingGuesses(remainingGuesses - 1);
       handleVibrate();
     }
-    setCurrentGuess("");
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCurrentGuess(e.target.value);
   };
 
   const isGameWon = word.split("").every((letter) => guesses.includes(letter));
@@ -61,7 +56,7 @@ function Game({ word, endGame }: GameProps) {
           <div className="mb-6">
             {word.split("").map((letter, index) => (
               <span key={index} className="text-2xl mx-1">
-                {guesses.includes(letter) ? letter : "_"}
+                {guesses.includes(letter) ? letter.toUpperCase() : "_"}
               </span>
             ))}
           </div>
@@ -69,19 +64,9 @@ function Game({ word, endGame }: GameProps) {
             <p>Yanlış Tahminler: {wrongGuesses.join(", ")}</p>
             <p>Kalan Haklar: {remainingGuesses}</p>
           </div>
-          <input
-            type="text"
-            value={currentGuess}
-            onChange={handleChange}
-            maxLength={1}
-            className="border rounded px-2 py-1 text-center"
-          />
-          <button
-            onClick={handleGuess}
-            className="bg-green-500 text-white px-4 py-2 rounded ml-2"
-          >
-            Tahmin Et
-          </button>
+        </div>
+        <div className="mt-8">
+          <WordLettersBar word={word} onGuess={handleGuess} />
         </div>
         <div className="mt-8"></div>
         <GameBottomBar selectedIndex={1} />
