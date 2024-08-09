@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      {gameState === "start" && <Menu />}
+      {gameState === "start" && <Menu startGame={startGame} />}
       {gameState === "playing" && <Game word={word} endGame={endGame} />}
       {gameState === "end" && <EndScreen score={score} startGame={startGame} />}
     </>

@@ -7,17 +7,21 @@ import ViewBody from "../components/ViewBody";
 import SettingsScreen from "./Settings";
 import StartScreen from "./StartScreen";
 
-function Menu() {
+interface MenuProps {
+  startGame: () => void;
+}
+
+function Menu({ startGame }: MenuProps) {
   const [index, setIndex] = useState(1);
   return (
-    <View>
+    <View background="yellow">
       <AppBar>
         <Badge number={30} />
         <Badge number={456} />
       </AppBar>
       <ViewBody>
         {index == 0 && <h1>Gelecek</h1>}
-        {index == 1 && <StartScreen startGame={() => {}} />}
+        {index == 1 && <StartScreen startGame={startGame} />}
         {index == 2 && <SettingsScreen />}
       </ViewBody>
       <BottomBar
