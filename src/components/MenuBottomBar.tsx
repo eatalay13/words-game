@@ -1,13 +1,13 @@
-import { Home, LucideProps, Medal, Settings } from "lucide-react";
+import { Home, Medal, Settings } from "lucide-react";
 import { useState } from "react";
-import { ButtomBarButton } from "./ButtomBarButton";
+import { MenuBottomBarButton } from "./MenuBottomBarButton";
 
 interface BottomBarProps {
   selectedIndex: number;
   onChange?: (index: number) => void;
 }
 
-function BottomBar({ selectedIndex, onChange }: BottomBarProps) {
+function MenuBottomBar({ selectedIndex, onChange }: BottomBarProps) {
   const [selected, setSelected] = useState(selectedIndex);
 
   function handleChanged(index: number) {
@@ -17,19 +17,19 @@ function BottomBar({ selectedIndex, onChange }: BottomBarProps) {
 
   return (
     <footer className="w-full bg-gameWhip rounded-t-3xl py-4 flex justify-evenly items-center">
-      <ButtomBarButton
+      <MenuBottomBarButton
         active={selected === 0}
         onClick={() => handleChanged(0)}
         icon={Medal}
         label="Liderlik"
-      ></ButtomBarButton>
-      <ButtomBarButton
+      ></MenuBottomBarButton>
+      <MenuBottomBarButton
         active={selected === 1}
         onClick={() => handleChanged(1)}
         icon={Home}
         label="Anasayfa"
-      ></ButtomBarButton>
-      <ButtomBarButton
+      ></MenuBottomBarButton>
+      <MenuBottomBarButton
         active={selected === 2}
         onClick={() => handleChanged(2)}
         icon={Settings}
@@ -39,13 +39,4 @@ function BottomBar({ selectedIndex, onChange }: BottomBarProps) {
   );
 }
 
-export default BottomBar;
-
-export interface ButtomBarButtonProps {
-  icon: React.ForwardRefExoticComponent<
-    Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
-  >;
-  active?: boolean;
-  label?: string;
-  onClick?: () => void;
-}
+export default MenuBottomBar;

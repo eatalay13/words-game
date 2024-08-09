@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AppBar from "../components/AppBar";
 import Badge from "../components/Badge";
-import BottomBar from "../components/BottomBar";
+import GameBottomBar from "../components/GameBottomBar";
 import View from "../components/View";
 import ViewBody from "../components/ViewBody";
 
@@ -83,8 +83,9 @@ function Game({ word, endGame }: GameProps) {
             Tahmin Et
           </button>
         </div>
+        <div className="mt-8"></div>
+        <GameBottomBar selectedIndex={1} />
       </ViewBody>
-      <BottomBar selectedIndex={1} />
     </View>
   );
 }

@@ -1,10 +1,19 @@
 import clsx from "clsx";
 import useSound from "use-sound";
-import { ButtomBarButtonProps } from "./BottomBar";
 
+import { LucideProps } from "lucide-react";
 import clickSound from "/sounds/classic-click.wav";
 
-export function ButtomBarButton(props: ButtomBarButtonProps) {
+interface BottomBarButtonProps {
+  icon: React.ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
+  >;
+  active?: boolean;
+  label?: string;
+  onClick?: () => void;
+}
+
+export function MenuBottomBarButton(props: BottomBarButtonProps) {
   const [play] = useSound(clickSound);
 
   function handleClick() {

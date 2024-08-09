@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AppBar from "../components/AppBar";
 import Badge from "../components/Badge";
-import BottomBar from "../components/BottomBar";
+import MenuBottomBar from "../components/MenuBottomBar";
 import View from "../components/View";
 import ViewBody from "../components/ViewBody";
 import SettingsScreen from "./Settings";
@@ -24,7 +24,7 @@ function Menu({ startGame }: MenuProps) {
         {index == 1 && <StartScreen startGame={startGame} />}
         {index == 2 && <SettingsScreen />}
       </ViewBody>
-      <BottomBar
+      <MenuBottomBar
         selectedIndex={1}
         onChange={(index) => {
           setIndex(index);
