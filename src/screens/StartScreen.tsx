@@ -39,8 +39,7 @@ function StartScreen({ startGame }: StartScreenProps) {
       <Confetti
         run={isConfettiVisible}
         recycle={false}
-        numberOfPieces={900}
-        tweenDuration={3000}
+        numberOfPieces={600}
         onConfettiComplete={(confetti) => {
           confetti?.reset();
           setConfettiVisible(false);
