@@ -13,17 +13,20 @@ interface MenuProps {
 
 function Menu({ startGame }: MenuProps) {
   const [index, setIndex] = useState(1);
+
+  const screens = [
+    <h1>Gelecek</h1>,
+    <StartScreen startGame={startGame} />,
+    <SettingsScreen />,
+  ];
+
   return (
     <View background="yellow">
       <AppBar>
         <Badge number={30} />
         <Badge number={456} />
       </AppBar>
-      <ViewBody>
-        {index == 0 && <h1>Gelecek</h1>}
-        {index == 1 && <StartScreen startGame={startGame} />}
-        {index == 2 && <SettingsScreen />}
-      </ViewBody>
+      <ViewBody>{screens[index]}</ViewBody>
       <MenuBottomBar
         selectedIndex={1}
         onChange={(index) => {
