@@ -1,3 +1,4 @@
+import confetti from "canvas-confetti";
 import { motion } from "framer-motion";
 import { Save } from "lucide-react";
 import MenuButton from "../components/MenuButton";
@@ -7,6 +8,14 @@ interface StartScreenProps {
 }
 
 function StartScreen({ startGame }: StartScreenProps) {
+  function handleSave() {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+  }
+
   return (
     <motion.div
       className="flex flex-col items-center justify-between"
@@ -25,7 +34,7 @@ function StartScreen({ startGame }: StartScreenProps) {
         <MenuButton onClick={startGame} variant="play">
           oyna
         </MenuButton>
-        <MenuButton variant="save">
+        <MenuButton variant="save" onClick={handleSave}>
           <Save size={24} strokeWidth={2.5} />
         </MenuButton>
       </div>
